@@ -4,7 +4,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      dropShadow:{
+      dropShadow: {
         'basic': '0 4px 3px rgba(0, 0, 0, 0.07)',
       },
       spacing: {
@@ -23,9 +23,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        'roboto': ['Roboto', 'sans-serif'] 
+        'roboto': ['Roboto', 'sans-serif']
       },
       fontSize: {
+        verysmall: ['12px', '14px'],
         small: ['14px', '16px'],
         sm: ['14px', '20px'],
         base: ['16px', '24px'],
@@ -37,6 +38,7 @@ module.exports = {
     },
     borderRadius: {
       'none': '0',
+      '10': '10px',
       '15': '15px',
       '20': '20px',
       '40': '40px',

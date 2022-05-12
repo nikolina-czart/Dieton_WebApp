@@ -4,6 +4,8 @@ const calendar = (date) => {
     const currentYear = date.getFullYear();
     const currentMonth = date.getMonth()
     const currentDay = date.getDay()
+    const beforeMonth = date.getMonth() - 1
+    const nextMonth = date.getMonth() + 1
 
     const nameOfMonthUS = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date);
 
@@ -20,12 +22,17 @@ const calendar = (date) => {
     let monthCalendar = new Array()
     let row = new Array()
 
+    const daysInBeforeMonth = getLastDayOfMonth(currentYear, currentMonth - 1).getDate()
+    const daysInAfterMonth = getLastDayOfMonth(currentYear, currentMonth + 1).getDate()
+
     for (let i = 0; i < firstDayOfMonth - 1; i++) {
-        row.push(0)
+        row.push([daysInBeforeMonth - i, getNameOfMonth(currentYear, beforeMonth), beforeMonth])
     }
 
+    row.reverse()
+
     for (let j = firstDayOfMonth; j <= allCells; j++) {
-        row.push(j - firstDayOfMonth + 1)
+        row.push([j - firstDayOfMonth + 1, getNameOfMonth(currentYear, currentMonth), currentMonth])
         if (j % 7 === 0) {
             monthCalendar.push(row)
             row = new Array()
@@ -35,7 +42,7 @@ const calendar = (date) => {
     if (!(row.length === 7)) {
         const rowLength = row.length
         for (let k = 0; k < 7 - rowLength; k++) {
-            row.push(0)
+            row.push([k + 1, getNameOfMonth(currentYear, nextMonth), nextMonth])
         }
     }
     monthCalendar.push(row)
@@ -51,6 +58,10 @@ function getLastDayOfMonth(year, month) {
     return new Date(year, month + 1, 0);
 }
 
+function getNameOfMonth(year, month) {
+    return new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(year, month));
+}
+
 const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-export { daysOfTheWeek, calendar }
+export { daysOfTheWeek, calendar, getNameOfMonth }

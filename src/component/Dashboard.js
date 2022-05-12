@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { saveUser } from "../redux/slice/authSlice";
 import MonthView from "./Calendar/calendarMonth/MonthView";
+import Calendar from "./Calendar/Calendar";
 
 const Dashboard = () => {
   const auth = getAuth();
@@ -23,13 +24,10 @@ const Dashboard = () => {
   console.log("user from state", user);
 
   return (
-    <div>
+    <>
       <Navbar />
-      <div className="px-[140px] mt-[50px]">
-        <MonthView />
-      </div>
-
-    </div>
+      <Calendar />
+    </>
   )
 }
 
