@@ -26,13 +26,13 @@ const calendar = (date) => {
     const daysInAfterMonth = getLastDayOfMonth(currentYear, currentMonth + 1).getDate()
 
     for (let i = 0; i < firstDayOfMonth - 1; i++) {
-        row.push([daysInBeforeMonth - i, getNameOfMonth(currentYear, beforeMonth), beforeMonth])
+        row.push([daysInBeforeMonth - i, getNameOfMonth(currentYear, beforeMonth), beforeMonth, currentYear])
     }
 
     row.reverse()
 
     for (let j = firstDayOfMonth; j <= allCells; j++) {
-        row.push([j - firstDayOfMonth + 1, getNameOfMonth(currentYear, currentMonth), currentMonth])
+        row.push([j - firstDayOfMonth + 1, getNameOfMonth(currentYear, currentMonth), currentMonth, currentYear])
         if (j % 7 === 0) {
             monthCalendar.push(row)
             row = new Array()
@@ -42,7 +42,7 @@ const calendar = (date) => {
     if (!(row.length === 7)) {
         const rowLength = row.length
         for (let k = 0; k < 7 - rowLength; k++) {
-            row.push([k + 1, getNameOfMonth(currentYear, nextMonth), nextMonth])
+            row.push([k + 1, getNameOfMonth(currentYear, nextMonth), nextMonth, currentYear])
         }
     }
     monthCalendar.push(row)

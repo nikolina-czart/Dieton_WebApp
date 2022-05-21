@@ -19,10 +19,20 @@ const Calendar = () => {
 
     const handlePrevious = () => {
         setMonth(month - 1)
+        if (month <= 0) {
+            setMonth(11)
+            setYear(year - 1)
+        }
+        console.log(month, year)
     };
 
     const handleNext = () => {
         setMonth(month + 1)
+        if (month >= 11) {
+            setMonth(0)
+            setYear(year + 1)
+        }
+        console.log(month, year)
     };
 
 
@@ -39,11 +49,11 @@ const Calendar = () => {
                     <p className="font-roboto text-blue-100 text-base font-normal">Calendar - {getNameOfMonth(year, month)} {year}</p>
                 </div>
 
-                <div className="w-[250px] h-[32px] flex row items-center justify-between">
+                <div className="w-[300px] h-[32px] flex row items-center justify-between">
                     <div className="w-[32px] h-[32px] bg-white drop-shadow-basic flex items-center justify-center rounded-10" onClick={handlePrevious}>
                         <img className="w-auto rotate-180" src={nextButton} alt="" />
                     </div>
-                    <div className="w-[160px] h-[32px] bg-white drop-shadow-basic flex items-center justify-center rounded-10">
+                    <div className="w-[210px] h-[32px] bg-white drop-shadow-basic flex items-center justify-center rounded-10">
                         <p className="font-roboto text-blue-100 text-base font-normal">{dateRange}</p>
                     </div>
                     <div className="w-[32px] h-[32px] bg-white drop-shadow-basic flex items-center justify-center rounded-10" onClick={handleNext}>

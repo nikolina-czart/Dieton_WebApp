@@ -4,7 +4,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import { getNameOfMonth } from "../../../utils/CalendarUtils";
 import Check from "../../../img/Check.svg"
 
-const DayComponent = ({ dayNumber, monthName, monthNumber }) => {
+const DayComponent = ({ dayNumber, monthName, monthNumber, yearNumber }) => {
     const value = 100
     const maxValue = 1000
 
@@ -15,14 +15,13 @@ const DayComponent = ({ dayNumber, monthName, monthNumber }) => {
     const progressBarColorTrail = "#2B255A1A"
 
     function isCurrentDay() {
-        if (dayNumber === currentDay && monthNumber === currentMonth) {
+        if (dayNumber === currentDay && monthNumber === currentMonth && yearNumber === currentYear) {
             return true
         }
         return false
     }
 
     function isDateBeforeToday(date) {
-        console.log(date)
         return new Date(date.toDateString()) < new Date(new Date().toDateString());
     }
 
@@ -99,8 +98,8 @@ const DayComponent = ({ dayNumber, monthName, monthNumber }) => {
                                     <p className="font-roboto text-blue-100 text-base font-bold">{value}</p>
                                     <p className="font-roboto text-blue-100 text-small font-normal">/{maxValue}</p>
                                 </CircularProgressbarWithChildren >
-                                {isDateBeforeToday(new Date(currentYear, monthNumber, dayNumber)) &&
-                                    <img className="w-[48px] mt-[-35px] ml-[50px]" src={Check} alt="" />}
+                                {isDateBeforeToday(new Date(yearNumber, monthNumber, dayNumber)) &&
+                                    <img className="z-10 w-[48px] mt-[-35px] ml-[50px]" src={Check} alt="" />}
                             </div>
                         </div>
                     </div>

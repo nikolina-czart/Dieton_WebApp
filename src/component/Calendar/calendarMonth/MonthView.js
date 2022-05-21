@@ -17,7 +17,7 @@ const MonthView = ({ monthCalendar }) => {
             <div className="grid grid-cols-7 gap-6 mt-[15px] flex justify-center">
                 {monthCalendar.map(weeks => (
                     weeks.map((day, index) => (
-                        <DayComponent key={index} dayNumber={day[0]} monthName={day[1]} monthNumber={day[2]} />
+                        <DayComponent key={index} dayNumber={day[0]} monthName={day[1]} monthNumber={day[2]} yearNumber={day[3]} />
                     ))
                 ))
                 }
