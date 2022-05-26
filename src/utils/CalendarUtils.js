@@ -1,5 +1,5 @@
 
-const calendar = (date) => {
+const calendarMonth = (date) => {
 
     const currentYear = date.getFullYear();
     const currentMonth = date.getMonth()
@@ -64,4 +64,6 @@ function getNameOfMonth(year, month) {
 
 const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-export { daysOfTheWeek, calendar, getNameOfMonth }
+
+
+export { daysOfTheWeek, calendarMonth, getNameOfMonth, }

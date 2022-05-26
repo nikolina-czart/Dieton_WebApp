@@ -1,6 +1,7 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {
@@ -19,7 +20,9 @@ module.exports = {
           100: '#2B255A',
           80: '#2B255ACC',
           60: '#2B255A99',
+          50: '#2B255A80',
           10: '#2B255A1A'
+
         },
       },
       fontFamily: {
@@ -31,6 +34,7 @@ module.exports = {
         sm: ['14px', '20px'],
         base: ['16px', '24px'],
         lg: ['20px', '23px'],
+        meal: ['24px', '28px'],
         calculator: ['30px', '30px'],
         create: ['40px', '47px'],
         xl: ['48px', '56px'],
@@ -45,5 +49,7 @@ module.exports = {
       'full': '9999px'
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }

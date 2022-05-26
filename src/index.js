@@ -5,6 +5,7 @@ import App from './App';
 import { store } from "./redux/store";
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import 'flowbite';
 
 const container = document.getElementById("root");
 const root = createRoot(container);
