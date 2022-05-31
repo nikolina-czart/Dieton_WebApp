@@ -1,10 +1,11 @@
 import React from "react";
 import Navbar from "./Navbar/Navbar";
+import MealView from "./MealView/MealView"
 
 const Meals = () => (
     <>
         <Navbar />
-        <p> MEAL </p>
+        <MealView />
     </>
 )
 
