@@ -11,13 +11,15 @@ import Register from "./component/unLoggedUser/Register"
 import Login from "./component/unLoggedUser/Login"
 import Dashboard from "./component/Dashboard"
 import Parameter from "./component/Parameter"
+import Meals from "./component/Meals";
+import Ingredient from "./component/Ingredient";
+import Shop from "./component/Shop";
 
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./configs/firebaseConfig";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { saveUser } from "./redux/slice/authSlice";
-
 
 function App() {
 
@@ -45,9 +47,19 @@ function App() {
             <Route path="/parameters">
               <Parameter />
             </Route>
+            <Route path="/meals">
+              <Meals />
+            </Route>
+            <Route path="/ingredient">
+              <Ingredient />
+            </Route>
+            <Route path="/shop">
+              <Shop />
+            </Route>
             <Route path="/">
               <Dashboard />
             </Route>
+
           </Switch>
         </Router>
       ) : (
@@ -64,26 +76,6 @@ function App() {
             </Route>
           </Switch>
         </Router>
-        // <div >
-        //   <div>
-        //     <h1>Hello {user.displayName}!</h1>
-        //     <p>{user.email}</p>
-        //   </div>
-        //   <Link
-        //     to="#"
-        //     onClick={() => {
-        //       signOut(auth)
-        //         .then(() => {
-        //           console.log("user signed out");
-        //         })
-        //         .catch((error) => {
-        //           console.log("error", error);
-        //         });
-        //     }}
-        //   >
-        //     Log out
-        //   </Link>
-        // </div>
       )}
     </div>
   );

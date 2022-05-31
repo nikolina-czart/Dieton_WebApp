@@ -1,0 +1,16 @@
+const Input = ({ label, type, onChangeInput, value }) => {
+    return (
+        <label class="block mt-4">
+            <span class="block text-small font-thin text-blue-80 ml-[8px]">{label}</span>
+            <input
+                type={type}
+                placeholder={label}
+                onChange={onChangeInput}
+                value={value}
+                className="w-full h-[30px] rounded-15 border-1 mt-1 border-blue-10 shadow-sm 
+                            focus:outline-none focus:border-blue-100 focus:ring-1 focus:ring-blue-100 text-blue-100" o />
+        </label>
+    )
+};
+
+export default Input;

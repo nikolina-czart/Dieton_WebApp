@@ -24,11 +24,13 @@ module.exports = {
           10: '#2B255A1A'
 
         },
+        yellow: '#F29F1D'
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif']
       },
       fontSize: {
+        iconNavbar: ['9px', '11px'],
         verysmall: ['12px', '14px'],
         small: ['14px', '16px'],
         sm: ['14px', '20px'],
