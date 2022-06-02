@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
-import Checkbox from "./checkbox/CheckBox";
-import CheckBoxGroup from "./checkbox/CheckBoxGroup";
-import Input from "./Input"
+
+import CheckBoxGroup from "../checkbox/CheckBoxGroup";
 
 const MealFilters = () => {
     const [typesOfMeal, setTypesOfMeal] = useState([
@@ -27,22 +26,6 @@ const MealFilters = () => {
     const [caloriesRangeMax, setCaloriesRangeMax] = useState("")
     const [minutesRangeMin, setMinutesRangeMin] = useState("")
     const [minutesRangeMax, setMinutesRangeMax] = useState("")
-
-    const onChangeCalorieMin = (e) => {
-        setCaloriesRangeMin(e.target.value)
-    }
-
-    const onChangeCalorieMax = (e) => {
-        setCaloriesRangeMax(e.target.value)
-    }
-
-    const onChangeMinutesMin = (e) => {
-        setMinutesRangeMin(e.target.value)
-    }
-
-    const onChangeMinutesMax = (e) => {
-        setMinutesRangeMax(e.target.value)
-    }
 
     function toggleDate(e, data, selector) {
         const { name } = e.target;
@@ -127,30 +110,10 @@ const MealFilters = () => {
 
     return (
         <div>
-            <p className="font-roboto text-blue-100 text-small font-semibold ">Filters</p>
-            <div className="flex flex-row mt-[5px]">
-                <p className="font-roboto text-blue-100 text-small font-normal mt-[10px] mr-1">Calories:</p>
-                <Input label="from" onChangeInput={onChangeCalorieMin} type="Number" />
-                <p className="font-roboto text-blue-100 text-small font-normal mt-[10px] mr-1 ml-1">-</p>
-                <Input label="to" onChangeInput={onChangeCalorieMax} type="Number" />
-            </div>
-            <div className="flex flex-row mt-[5px]">
-                <p className="font-roboto text-blue-100 text-small font-normal mt-[10px] mr-1">Minutes:</p>
-                <Input label="from" onChangeInput={onChangeMinutesMin} type="Number" />
-                <p className="font-roboto text-blue-100 text-small font-normal mt-[10px] mr-1 ml-1">-</p>
-                <Input label="to" onChangeInput={onChangeMinutesMax} type="Number" />
-            </div>
+            <p className="font-roboto text-blue-100 text-verysmall font-thin">Filters</p>
             <CheckBoxGroup title="Type of meal" data={typesOfMeal} toggleDate={(e) => toggleDate(e, typesOfMeal, "typesOfMeal")} />
             <CheckBoxGroup title="Limits" data={limits} toggleDate={(e) => toggleDate(e, limits, "limits")} />
             <CheckBoxGroup title="Difficulty level" data={difficultyLevel} toggleDate={(e) => toggleDate(e, difficultyLevel, "difficultyLevel")} />
-            <button type="button" class="flex flex-row  w-1/2  place-items-center justify-center bg-white drop-shadow-basic rounded-20 hover:bg-blue-50 hover:text-white mt-[15px]"
-                onClick={handleFilter}>
-                <p className="font-roboto text-blue-100 text-base font-normal mr-2">Filter</p>
-            </button>
-            <button type="button" class="flex flex-row  w-1/2  place-items-center justify-center bg-white drop-shadow-basic rounded-20 hover:bg-blue-50 hover:text-white mt-[15px]"
-                onClick={handleReset}>
-                <p className="font-roboto text-blue-100 text-base font-normal mr-2">Reset</p>
-            </button>
         </div>
 
 
